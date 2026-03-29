@@ -9,7 +9,7 @@ const SECRET_KEY = Buffer.from("qW4s7yYJr5d2kOk6");
 
 // --- Key Generator (10-minute window) ---
 function generateKey() {
-    const timestampWindow = Math.floor(Date.now() / 1000 / 600);
+    const timestampWindow = Math.floor(Date.now() / 1000 / 180);
     const timeCode = String(timestampWindow % 10000).padStart(4, '0');
 
     const hmac = crypto.createHmac('sha256', SECRET_KEY);
