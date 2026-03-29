@@ -17,7 +17,7 @@ function generateKey() {
     const hmacHex = hmac.digest('hex');
 
     const hmacInt = BigInt('0x' + hmacHex);
-    const seed = String(hmacInt % 10000n).padStart(4, '0');
+    const seed = String(hmacInt % BigInt(10000)).padStart(4, '0');
     const padding = String(Math.floor(Math.random() * 10000)).padStart(4, '0');
 
     return `${timeCode}${seed}${padding}`;
